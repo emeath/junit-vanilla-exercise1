@@ -8,7 +8,7 @@ import entities.Financing;
 public class FinancingTests {
 	
 	@Test
-	public void ConstructorShouldThrowIllegalArgumentExceptionWhenArgsAreInvalid() {
+	public void constructorShouldThrowIllegalArgumentExceptionWhenArgsAreInvalid() {
 		//This test expects that an exception will be thrown 
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -30,7 +30,7 @@ public class FinancingTests {
 	}
 	
 	@Test
-	public void ConstructorShouldNotThrowIllegalArgumentExceptionWhenArgsAreCorrect() {
+	public void constructorShouldNotThrowIllegalArgumentExceptionWhenArgsAreCorrect() {
 		
 		Assertions.assertDoesNotThrow(() -> {
 			double totalAmount = 100000.0;
@@ -40,5 +40,5 @@ public class FinancingTests {
 			Financing financing = new Financing(totalAmount, income, months);
 		});
 	}
-
+	
 }
