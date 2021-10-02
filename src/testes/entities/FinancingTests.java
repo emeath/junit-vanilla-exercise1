@@ -16,10 +16,6 @@ public class FinancingTests {
 			// This arguments will make the test fail because they are
 			// correct and will not throw an Exception
 
-			/*
-			 * double totalAmount = 100000.0; double income = 2000.0; int months = 80;
-			 */
-
 			double totalAmount = 100000.0;
 			double income = 2000.0;
 			int months = 20;
@@ -27,7 +23,7 @@ public class FinancingTests {
 			Financing financing = new Financing(totalAmount, income, months);
 		});
 	}
-
+	
 	@Test
 	public void constructorShouldNotThrowIllegalArgumentExceptionWhenArgsAreCorrect() {
 
@@ -39,7 +35,7 @@ public class FinancingTests {
 			Financing financing = new Financing(totalAmount, income, months);
 		});
 	}
-
+	
 	@Test
 	public void setTotalAmountShouldUpdateAmountWhenDataIsValid() {
 		Financing financing = FinancingFactory.createValidFinancing();
@@ -55,11 +51,33 @@ public class FinancingTests {
 	}
 
 	@Test
-	public void setTotalAmountShouldThrownIllegalArgumentExceptionWhenDataIsNotValid() {
+	public void setTotalAmountShouldThrowIllegalArgumentExceptionWhenDataIsNotValid() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			Financing financing = FinancingFactory.createValidFinancing();
 			financing.setTotalAmount(1000000.0);
 		});
 	}
 
+	@Test
+	public void setIncomeShouldUpdateFinancingIncomeWhenDataIsValid() {
+		Financing financing = FinancingFactory.createValidFinancing();
+		double expectedIncome = 4000.0;
+		
+		financing.setIncome(expectedIncome);
+		
+		Assertions.assertEquals(expectedIncome, financing.getIncome());
+		
+		Assertions.assertDoesNotThrow(() -> {
+			financing.setIncome(expectedIncome + 9);
+		});
+		
+	}
+
+	@Test
+	public void setIncomeShouldThrowIllegalArgumentExceptionWhenDataIsNotValid() { 
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			Financing financing = FinancingFactory.createValidFinancing();
+			financing.setIncome(1000.0);
+		});
+	}
 }
