@@ -103,4 +103,14 @@ public class FinancingTests {
 		});
 	}
 	
+	@Test
+	public void entryMethodShouldCorrectlyCalculateEntryFinancingValue() {
+		Financing financing = FinancingFactory.createValidFinancing();
+		double expectedEntryValue = 20000.0;
+		
+		double entryValue = financing.entry();
+		
+		Assertions.assertTrue(expectedEntryValue == entryValue);
+	}
+	
 }
