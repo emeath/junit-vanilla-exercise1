@@ -113,4 +113,13 @@ public class FinancingTests {
 		Assertions.assertTrue(expectedEntryValue == entryValue);
 	}
 	
+	@Test
+	public void quotaMethodShouldCorrectlyCalculateQuotaFinancingValue() {
+		Financing financing = FinancingFactory.createValidFinancing();
+		double expectedQuotaValue = (100000.0 - 0.2*100000.0) / 80;
+		
+		double quotaValue = financing.quota();
+		
+		Assertions.assertEquals(expectedQuotaValue, quotaValue);
+	}
 }

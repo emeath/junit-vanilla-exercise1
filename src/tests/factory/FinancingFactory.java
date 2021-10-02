@@ -12,7 +12,7 @@ public class FinancingFactory {
 		
 		double totalAmount = 100000.0;
 		double income = 2000.0;
-		int months = 100;
+		int months = 80;
 		
 		return new Financing(totalAmount, income, months);
 	}
